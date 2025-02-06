@@ -1,0 +1,3 @@
+# Node TS, PostgreSQL with Docker Compose
+
+This project sets up a PostgreSQL database using Docker Compose.
