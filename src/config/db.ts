@@ -5,7 +5,8 @@ dotenv.config();
 
 
 export const db = new Sequelize(process.env.DATABASE_URL, {
-    logging: false,
+    models: [__dirname + '/../models/**/*'],
+    logging: true,
 
     // dialectOptions: {
     //     ssl: {
