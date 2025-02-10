@@ -38,3 +38,12 @@ export const validateBudgetInput =async (req: Request, res: Response, next: Next
        await body('amount').isNumeric().withMessage('Amount is required').custom(value =>  value > 0).withMessage('Amount must be greater than 0').run(req)
     next()
 }
+
+
+export const hasAccess = async (req: Request, res: Response, next: NextFunction) => {
+    if (req.budget.userId !== req.user.id) {
+        res.status(401).json({message: 'You do not have access to this resource'});
+        return;
+    }
+    next();
+}

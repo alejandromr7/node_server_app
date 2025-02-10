@@ -3,10 +3,10 @@ import Budget from "./Budget";
 
 @Table({ tableName: 'expenses' })
 export class Expense extends Model {
-    @Column({ type: DataType.STRING(100) })
+    @Column({ type: DataType.STRING(100), allowNull: false })
     declare name: string;
 
-    @Column({ type: DataType.DECIMAL })
+    @Column({ type: DataType.DECIMAL,allowNull: false })
     declare amount: number;
 
     @BelongsTo(() => Budget)
